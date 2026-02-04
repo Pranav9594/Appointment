@@ -4,11 +4,15 @@ import { Feather } from "@expo/vector-icons";
 import { BlurView } from "expo-blur";
 import { Platform, StyleSheet } from "react-native";
 import HomeStackNavigator from "@/navigation/HomeStackNavigator";
+import StatusStackNavigator from "@/navigation/StatusStackNavigator";
+import ScheduleStackNavigator from "@/navigation/ScheduleStackNavigator";
 import ProfileStackNavigator from "@/navigation/ProfileStackNavigator";
 import { useTheme } from "@/hooks/useTheme";
 
 export type MainTabParamList = {
   HomeTab: undefined;
+  StatusTab: undefined;
+  ScheduleTab: undefined;
   ProfileTab: undefined;
 };
 
@@ -47,9 +51,29 @@ export default function MainTabNavigator() {
         name="HomeTab"
         component={HomeStackNavigator}
         options={{
-          title: "Home",
+          title: "Request",
           tabBarIcon: ({ color, size }) => (
-            <Feather name="home" size={size} color={color} />
+            <Feather name="edit-3" size={size} color={color} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="StatusTab"
+        component={StatusStackNavigator}
+        options={{
+          title: "Status",
+          tabBarIcon: ({ color, size }) => (
+            <Feather name="search" size={size} color={color} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="ScheduleTab"
+        component={ScheduleStackNavigator}
+        options={{
+          title: "Schedule",
+          tabBarIcon: ({ color, size }) => (
+            <Feather name="calendar" size={size} color={color} />
           ),
         }}
       />
@@ -57,9 +81,9 @@ export default function MainTabNavigator() {
         name="ProfileTab"
         component={ProfileStackNavigator}
         options={{
-          title: "Profile",
+          title: "More",
           tabBarIcon: ({ color, size }) => (
-            <Feather name="user" size={size} color={color} />
+            <Feather name="menu" size={size} color={color} />
           ),
         }}
       />

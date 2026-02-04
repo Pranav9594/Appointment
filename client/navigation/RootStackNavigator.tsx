@@ -1,12 +1,14 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import MainTabNavigator from "@/navigation/MainTabNavigator";
-import ModalScreen from "@/screens/ModalScreen";
+import AdminLoginScreen from "@/screens/AdminLoginScreen";
+import AdminDashboardScreen from "@/screens/AdminDashboardScreen";
 import { useScreenOptions } from "@/hooks/useScreenOptions";
 
 export type RootStackParamList = {
   Main: undefined;
-  Modal: undefined;
+  AdminLogin: undefined;
+  AdminDashboard: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -22,11 +24,20 @@ export default function RootStackNavigator() {
         options={{ headerShown: false }}
       />
       <Stack.Screen
-        name="Modal"
-        component={ModalScreen}
+        name="AdminLogin"
+        component={AdminLoginScreen}
         options={{
+          headerTitle: "Admin",
           presentation: "modal",
-          headerTitle: "Modal",
+        }}
+      />
+      <Stack.Screen
+        name="AdminDashboard"
+        component={AdminDashboardScreen}
+        options={{
+          headerTitle: "Dashboard",
+          headerBackVisible: false,
+          gestureEnabled: false,
         }}
       />
     </Stack.Navigator>

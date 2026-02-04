@@ -1,24 +1,24 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import ProfileScreen from "@/screens/ProfileScreen";
+import CheckStatusScreen from "@/screens/CheckStatusScreen";
 import { useScreenOptions } from "@/hooks/useScreenOptions";
 
-export type ProfileStackParamList = {
-  Profile: undefined;
+export type StatusStackParamList = {
+  CheckStatus: undefined;
 };
 
-const Stack = createNativeStackNavigator<ProfileStackParamList>();
+const Stack = createNativeStackNavigator<StatusStackParamList>();
 
-export default function ProfileStackNavigator() {
+export default function StatusStackNavigator() {
   const screenOptions = useScreenOptions();
 
   return (
     <Stack.Navigator screenOptions={screenOptions}>
       <Stack.Screen
-        name="Profile"
-        component={ProfileScreen}
+        name="CheckStatus"
+        component={CheckStatusScreen}
         options={{
-          headerTitle: "More",
+          headerTitle: "Check Status",
         }}
       />
     </Stack.Navigator>
